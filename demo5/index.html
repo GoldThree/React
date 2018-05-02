@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var NotesList = React.createClass({
+        render: function() {
+            return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children, function (child) {     //this.props.children表示当前节点的所有子节点，三种可能值，0个节点是undefined；1个节点是object；多个子节点的时候是array。
+                                return <li>{child}</li>;
+                            })
+                        }
+                    </ol>
+            );
+        }
+    });
+    ReactDOM.render(
+            <NotesList>
+                <h1>hello</h1>
+                <h2>world</h2>
+                <h3>hello</h3>
+                <h4>react</h4>
+            </NotesList>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>
