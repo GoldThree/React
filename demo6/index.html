@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    //var data = 123;
+    var MyTitle = React.createClass({
+        // propTypes: {
+        //   title: React.PropTypes.string.isRequired,//验证传进来的title是否是string类型
+        // },
+        // render: function() {
+        //   return <h1> {this.props.title} </h1>;
+        // }
+        getDefaultProps : function () {  //设置默认值
+            return {
+                title : 'Hello World'
+            };
+        },
+        render: function() {
+            return <h1> {this.props.title} </h1>;
+        }
+    });
+    ReactDOM.render(
+        // <MyTitle title={data} />, 传值
+        <MyTitle />,
+        document.getElementById('example')
+    );
+</script>
+</body>
+</html>
